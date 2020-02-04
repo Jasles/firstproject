@@ -1,0 +1,11 @@
+body{
+    background:lightskyblue;
+    margin: 85px;
+}
+
+.square{
+    width: 150px;
+    background:lightgreen;
+    height: 150px;
+    display: inline-block;
+  }
