@@ -124,3 +124,9 @@ h4{
   padding: 20px;
   display: none;
 }
+
+.logo{
+  width: 500px;
+  height: 600px;
+  text-align: center;
+}
