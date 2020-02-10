@@ -1,41 +1,95 @@
-"use strict"
-let startNewGame=document.querySelector("h1")
-console.log ( startNewGame)
-startNewGame.addEventListener('click',redButton)
+"use strict";
+let startNewGame = document.querySelector("h1");
+console.log(startNewGame);
+startNewGame.addEventListener("click", redButton);
 
-function redButton(){
-    location.reload()
+function redButton() {
+  location.reload();
 }
 
-document.querySelectorAll(".square")
-let gridSquares= document.querySelectorAll("img:first-child")
-for (let i=0; i<gridSquares.length; i++)
-{
-
-    gridSquares[i].addEventListener ("click", changePic)
+document.querySelectorAll(".square");
+let gridSquares = document.querySelectorAll("img:first-child");
+for (let i = 0; i < gridSquares.length; i++) {
+  gridSquares[i].addEventListener("click", changePic);
 }
 
-function changePic (e)
-{
-    let firstPic= e.target;
+function changePic(e) {
+  let firstPic = e.target;
 
-    firstPic.style.display= "none"
-    let secondPic =firstPic.nextSibling 
+  firstPic.style.display = "none";
+  let secondPic = firstPic.nextSibling;
 
-    secondPic.style.display="inline"
+  secondPic.style.display = "inline";
 }
 
+const twoPoints = document.querySelectorAll(".grid .Two");
+const onePoints = document.querySelectorAll(".grid .One");
+const towerPoints = document.querySelectorAll(".grid .Tower");
+const scoreBox = document.querySelector("h2");
+let score = 0;
+
+const twoScore = function(e) {
+  score = score + 2;
+  if (score >= 0 && score < 12) {
+      scoreBox.textContent = "Score" + " " + score;
+    
+  } else if (score >=12) {
+
+    const winModal=document.querySelector(".bg-modal2")
+    const winModalContent=document.querySelector(".modal-content2")
+
+    winModalContent.style.display="block";
+    winModal.style.display="flex";
+     
+  } else{ 
+    const looseModal=document.querySelector(".bg-modal1")
+     const looseModalContent=document.querySelector(".modal-content1")
+
+     looseModalContent.style.display="block";
+     looseModal.style.display="flex"
+
+  }}
+
+  twoPoints.forEach(twoPoint => {
+    twoPoint.addEventListener("click", twoScore, { once: true });
+  });
 
 
-const twoPoints= document.querySelectorAll('.grid .Two')
-const onePoint= document.querySelector('.grid .One')
-const scoreBox= document.querySelector('h2')
-let score = 0
+  const oneScore = function(e) {
+  score = score + 1;
+    if (score >= 0 && score < 12) {
+    scoreBox.textContent = "Score" + " " + score;
+  } else if (score>=12){
+    const winModal2=document.querySelector(".bg-modal2")
+    const winModalContent2=document.querySelector(".modal-content2")
 
-twoPoints.forEach(twoPoint => {
-    twoPoint.addEventListener('click', (e) => {
-        console.log(e)
-        score = score + 2
-        scoreBox.textContent= "Score" + " " + score
-})
-})
+    winModalContent2.style.display="block";
+    winModal2.style.display="flex";
+
+} else {
+  const looseModal=document.querySelector(".bg-modal1")
+  const looseModalContent=document.querySelector(".modal-content1")
+
+  looseModalContent.style.display="block";
+  looseModal.style.display="flex";
+  }
+};
+onePoints.forEach(onePoint => {
+  onePoint.addEventListener("click", oneScore, { once: true });
+});
+
+const towerScore = function(e) {
+  score = score - 3;
+  if (score >=0) {
+    scoreBox.textContent = "Score" + " " + score;
+  } else {
+    const looseModal=document.querySelector(".bg-modal1")
+    const looseModalContent=document.querySelector(".modal-content1")
+  
+    looseModalContent.style.display="block";
+    looseModal.style.display="flex";
+  }
+};
+
+towerPoints.forEach(towerPoint => {
+  towerPoint.addEventListener("click", towerScore, { once: true })});
