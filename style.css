@@ -125,3 +125,8 @@ h4{
   display: none;
 }
 
+p{
+  color: white;
+  height: 100px;
+  font-size: 25px;
+}
