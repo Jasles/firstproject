@@ -1,5 +1,5 @@
 body{
-    background: black;
+    background:white;
     display: fill;
    text-align: center ;
 }
@@ -126,7 +126,7 @@ h4{
 }
 
 p{
-  color: white;
+  color: black;
   height: 100px;
   font-size: 25px;
 }
@@ -135,4 +135,8 @@ p{
   width: 800px;
   justify-content: center;
   margin: 250px;
+}
+.title{
+ font-size: 100px;
+ margin-bottom: -5px;
 }
